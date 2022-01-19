@@ -198,6 +198,9 @@ public class TomcatRunConfiguration extends LocatableConfigurationBase implement
         options.setAdminPort(adminPort);
     }
 
+    public void setAjpPort(String ajpPort) { options.setAjpPort(ajpPort); } //AJP
+    public String getAjpPort() { return options.getAjpPort(); } //AJP
+
     public String getVmOptions() {
         return options.getVmOptions();
     }
@@ -230,6 +233,7 @@ class TomcatOptionRunConfigurationOptions extends LocatableRunConfigurationOptio
     private String contextPath;
     private String port = "8080";
     private String adminPort = "8005";
+    private String ajpPort= "8009";; //AJP
     private String vmOptions;
     private Map<String, String> envOptions;
     private Boolean passParentEnvironmentVariables = true;
@@ -266,6 +270,11 @@ class TomcatOptionRunConfigurationOptions extends LocatableRunConfigurationOptio
         this.port = port;
     }
 
+    public void setAjpPort(String ajpPort) { this.ajpPort = ajpPort;  } //AJP
+    public String getAjpPort() { return ajpPort; } //AJP
+
+
+
     public String getAdminPort() {
         return adminPort;
     }
@@ -297,5 +306,7 @@ class TomcatOptionRunConfigurationOptions extends LocatableRunConfigurationOptio
     public void setPassParentEnvironmentVariables(Boolean passParentEnvironmentVariables) {
         this.passParentEnvironmentVariables = passParentEnvironmentVariables;
     }
+
+
 }
 

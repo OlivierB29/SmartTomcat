@@ -67,6 +67,11 @@ public class TomcatSettingsEditor extends SettingsEditor<TomcatRunConfiguration>
         if (port != null && !"".equals(port.trim())) {
             runnerSetting.getPortField().setText(port);
         }
+        //AJP
+        String ajpPort = tomcatRunConfiguration.getAjpPort();
+        if (ajpPort != null && !"".equals(ajpPort.trim())) {
+            runnerSetting.getAjpPort().setText(ajpPort);
+        }
         String adminPort = tomcatRunConfiguration.getAdminPort();
         if (adminPort != null && !"".equals(adminPort.trim())) {
             runnerSetting.getAdminPort().setText(adminPort);
@@ -99,6 +104,7 @@ public class TomcatSettingsEditor extends SettingsEditor<TomcatRunConfiguration>
         tomcatRunConfiguration.setModule(runnerSetting.getModule());
         tomcatRunConfiguration.setContextPath(runnerSetting.getContextPathField().getText());
         tomcatRunConfiguration.setPort(runnerSetting.getPortField().getText());
+        tomcatRunConfiguration.setAjpPort(runnerSetting.getAjpPort().getText()); //AJP
         tomcatRunConfiguration.setAdminPort(runnerSetting.getAdminPort().getText());
         tomcatRunConfiguration.setVmOptions(runnerSetting.getVmOptons().getText());
         tomcatRunConfiguration.setEnvOptions(runnerSetting.getEnvOptions().getEnvs());
@@ -116,6 +122,7 @@ public class TomcatSettingsEditor extends SettingsEditor<TomcatRunConfiguration>
 
         JTextField contextPathField = runnerSetting.getContextPathField();
         JFormattedTextField portField = runnerSetting.getPortField();
+        JFormattedTextField ajpPort = runnerSetting.getAjpPort(); //AJP
         JFormattedTextField adminPort = runnerSetting.getAdminPort();
 
         JXButton configrationButton = runnerSetting.getConfigrationButton();
@@ -146,6 +153,7 @@ public class TomcatSettingsEditor extends SettingsEditor<TomcatRunConfiguration>
         });
 
         portField.setValue(8080);
+        ajpPort.setValue(8009); //AJP
         adminPort.setValue(8005);
         DefaultFormatterFactory tf = new DefaultFormatterFactory();
         NumberFormat format = NumberFormat.getInstance();
@@ -156,6 +164,7 @@ public class TomcatSettingsEditor extends SettingsEditor<TomcatRunConfiguration>
         formatter.setMaximum(65535);
         tf.setDefaultFormatter(formatter);
         portField.setFormatterFactory(tf);
+        ajpPort.setFormatterFactory(tf); //AJP
         adminPort.setFormatterFactory(tf);
 
         return runnerSetting.getMainPanel();
