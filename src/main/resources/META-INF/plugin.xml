@@ -1,9 +1,11 @@
 <idea-plugin>
     <id>com.poratu.idea.plugins.tomcat</id>
-    <name>Smart Tomcat</name>
+    <name>Smart Tomcat AJP</name>
     <vendor email="zengkid@msn.com">zengkid</vendor>
 
     <description><![CDATA[
+      Fork https://github.com/OlivierB29/SmartTomcatAJP
+      Original https://github.com/zengkid/SmartTomcat
       This is for Tomcat Server plugin.
       The SmartTomcat will auto load the Webapp classes and libs from project and module,
       You needn't copy the classes and libs to the WEB-INF/classes and WEB-INF/lib.<br/>
