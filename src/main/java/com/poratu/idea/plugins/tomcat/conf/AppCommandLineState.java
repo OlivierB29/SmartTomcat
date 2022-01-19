@@ -156,7 +156,10 @@ public class AppCommandLineState extends JavaCommandLineState {
             }
         }
         portShutdown.setAttribute("port", cfg.getAdminPort());
-        portEAjp.setAttribute("port", cfg.getAjpPort()); //AJP
+        if (portEAjp != null) {
+            portEAjp.setAttribute("port", cfg.getAjpPort()); //AJP
+        }
+
         portE.setAttribute("port", cfg.getPort());
 
         Element contextE = doc.createElement("Context");
